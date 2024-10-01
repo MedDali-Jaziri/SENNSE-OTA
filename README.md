@@ -252,23 +252,26 @@ Note: To access the server, you need to request permission from the SENNSE Tech 
    ssh username@server_ip
    ```
 2. Adding the user to the `Docker` group
-2. Stop the old `Docker` container:
+    ```bash
+   newgrp docker
+   ```
+3. Stop the old `Docker` container:
    ```bash
    docker stop esp32-ota-container
    ```
 
-3. Pull the new `Docker` image:
+4. Pull the new `Docker` image:
    ```bash
    docker pull yourusername/ota-firmware-server:1.x
    ```
 
-4. Navigate to the Docker Compose directory:
+5. Navigate to the Docker Compose directory:
    ```bash
    mkdir DockerCompose_OTAServer
    cd DockerCompose_OTAServer/
    ```
 
-5. Create `docker-compose.yml` with the new image tag:
+6. Create `docker-compose.yml` with the new image tag:
    ```yaml
    version: '3'
    services:
