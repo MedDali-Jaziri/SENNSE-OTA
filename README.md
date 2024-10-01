@@ -176,9 +176,9 @@ After modifying the firmware code for OTA, generate the binary firmware:
 
 ---
 
-## Step 4: Install Docker (Optional)
+## Step 4: Install Docker on your Local Machine (Optional)
 
-If you are unfamiliar with Docker, follow the installation instructions below:
+If you are unfamiliar with Docker and you are not connecting with a server where an existing Docker Engine is running, follow the installation instructions below:
 
 ### Windows
 
@@ -251,27 +251,29 @@ Note: To access the server, you need to request permission from the SENNSE Tech 
    ```bash
    ssh username@server_ip
    ```
-
-3. Navigate to the Docker Compose directory:
+2. Adding the user to the `Docker` group
+2. Stop the old `Docker` container:
    ```bash
+   docker stop esp32-ota-container
+   ```
+
+3. Pull the new `Docker` image:
+   ```bash
+   docker pull yourusername/ota-firmware-server:1.x
+   ```
+
+4. Navigate to the Docker Compose directory:
+   ```bash
+   mkdir DockerCompose_OTAServer
    cd DockerCompose_OTAServer/
    ```
 
-4. Stop the old Docker container:
-   ```bash
-   sudo docker-compose down
-   ```
-
-5. Pull the new Docker image:
-   ```bash
-   sudo docker pull yourusername/ota-firmware-server:1.x
-   ```
-
-6. Update `docker-compose.ymltt` with the new image tag:
+5. Create `docker-compose.yml` with the new image tag:
    ```yaml
    version: '3'
    services:
      esp32-ota-nginx:
+       container_name: esp32-ota-container
        image: yourusername/ota-firmware-server:1.x
        ports:
          - "80:80"
@@ -279,7 +281,7 @@ Note: To access the server, you need to request permission from the SENNSE Tech 
 
 7. Start the new container:
    ```bash
-   sudo docker-compose up -d
+   docker-compose up -d
    ```
 
 ---
