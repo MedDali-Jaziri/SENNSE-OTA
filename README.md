@@ -262,7 +262,7 @@ Note: To access the server, you need to request permission from the SENNSE Tech 
 
 4. Pull the new `Docker` image:
    ```bash
-   docker pull yourusername/ota-firmware-server:1.x
+   docker pull meddali/ota-firmware-server:1.x
    ```
 
 5. Navigate to the Docker Compose directory:
