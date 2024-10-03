@@ -277,7 +277,7 @@ Note: To access the server, you need to request permission from the SENNSE Tech 
    services:
      esp32-ota-nginx:
        container_name: esp32-ota-container
-       image: yourusername/ota-firmware-server:1.x
+       image: yourusername/sennse-ota-firmware-server:1.x
        ports:
          - "80:80"
    ```
