@@ -260,29 +260,34 @@ Note: To access the server, you need to request permission from the SENNSE Tech 
    docker stop esp32-ota-container
    ```
 
-4. Pull the new `Docker` image:
+4. Login to your `Docker` account:
+   ```bash
+   docker login
+   ```
+   
+5. Pull the new `Docker` image:
    ```bash
    docker pull meddali/sennse-ota-firmware-server:1.x
    ```
 
-5. Navigate to the Docker Compose directory:
+6. Navigate to the Docker Compose directory:
    ```bash
    mkdir DockerCompose_OTAServer
    cd DockerCompose_OTAServer/
    ```
 
-6. Create `docker-compose.yml` with the new image tag:
+7. Create `docker-compose.yml` with the new image tag:
    ```yaml
    version: '3'
    services:
      esp32-ota-nginx:
        container_name: esp32-ota-container
-       image: yourusername/sennse-ota-firmware-server:1.x
+       image: meddali/sennse-ota-firmware-server:1.x
        ports:
          - "80:80"
    ```
 
-7. Start the new container:
+8. Start the new container:
    ```bash
    docker-compose up -d
    ```
