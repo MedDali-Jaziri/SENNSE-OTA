@@ -184,7 +184,7 @@ If you are unfamiliar with Docker and you are not connecting with a server where
 
 1. Download the Docker Desktop installer from the [official website](https://www.docker.com/get-started).
 2. Run `Docker Desktop Installer.exe`.
-3. Follow the setup wizard, ensuring that **WSL 2** is selected if available.
+3. Follow the setup wizard, ensuring that **WSL 2** is selected if available. On the case that you have find the WSL not activate follow this instruction guide [https://docs.docker.com/desktop/install/windows-install/#system-requirements] 
 4. After installation, start Docker Desktop.
 
 ### Linux (Ubuntu)
@@ -222,11 +222,10 @@ To deploy the firmware, create a Docker image with the binary firmware:
 FROM nginx:alpine
 
 # Copy the firmware binary into the Nginx web directory
-COPY build/esp32.esp32.esp32/ESP32_OTA.ino.bin /usr/share/nginx/html/firmware.bin
+COPY build/esp32.esp32.esp32/your_binary_file.ino.bin /usr/share/nginx/html/firmware.bin
 ```
 
 2. Note: Ensure you have the necessary authorization from the SENNSE Tech Team before pushing new images to Docker Hub.
-
 
 
 3. Log in to Docker Hub:
